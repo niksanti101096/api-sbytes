@@ -48,7 +48,7 @@ class SalesController extends Controller
         }
 
         try {
-            $ReferenceId = Str::random(5) . date("Ymd");
+            $ReferenceId = Str::random(5) . date("YmdHis");
             Sales::create($request->post() + ["ReferenceId" => $ReferenceId]);
 
             return response()->json(
@@ -60,7 +60,8 @@ class SalesController extends Controller
             Log::error($e->getMessage());
 
             return response()->json([
-                "Message" => "Error while while placing your order!"
+                "Message" => "Error while while placing your order!",
+                "Error" => $e->getMessage()
             ]);
         }
     }

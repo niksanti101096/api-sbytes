@@ -16,5 +16,7 @@ class Sales extends Model
         'Quantity',
         'TotalPrice',
         'ReferenceId',
+        'Address',
+        'ContactNumber',
     ];
 }
