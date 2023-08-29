@@ -102,8 +102,15 @@ class AuthController extends Controller
 
         return response()
             ->json([
-                'Message' => 'You are successfully logged out!',
+                "Status" => 200,
                 'User' => $user
             ], 200);
     }
+
+    public function index()
+    {
+        $users = User::all();
+        return response()->json(['status' => '200', 'users' => $users]);
+    }
+
 }

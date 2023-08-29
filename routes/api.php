@@ -27,6 +27,8 @@ Route::post("login", [AuthController::class, "login"]);
 Route::resource('products', ProductsController::class);
 Route::resource('sales', SalesController::class);
 
+Route::get("fetchUsers", [AuthController::class, "index"]);
+
 Route::group(["middleware" => ["auth:api"]], function () {
     Route::post("logout", [AuthController::class, "logout"]);
 });
